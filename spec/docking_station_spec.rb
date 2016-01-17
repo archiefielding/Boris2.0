@@ -19,4 +19,12 @@ describe DockingStation do
     end
   end
 
+  describe '#dock' do
+    it 'raises and error when full' do
+      docking_station = DockingStation.new
+      20.times { docking_station.dock Bike.new }
+      expect { docking_station.dock Bike.new }.to raise_error 'Docking station full'
+    end
+  end
+
 end
